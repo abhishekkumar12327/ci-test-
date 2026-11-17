@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Large datasets and binary artifacts (>100MB causes git push failure)
+*.csv
+!data/sample_creditcard.csv
+*.joblib
+*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
