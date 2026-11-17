@@ -54,3 +54,15 @@ def test_model_save_load_predict():
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
+
+def test_model_type_check():
+    """Verify train_model returns a valid scikit-learn model."""
+    from sklearn.naive_bayes import GaussianNB
+    from src.preprocess import load_data, split_features_target, scale_features
+    from src.model import train_model
+
+    df = load_data(SAMPLE_CSV_PATH)
+    X, y = split_features_target(df)
+    X_train, _, _ = scale_features(X.iloc[:50])
+    model = train_model(X_train, y.iloc[:50])
+    assert isinstance(model, GaussianNB)
